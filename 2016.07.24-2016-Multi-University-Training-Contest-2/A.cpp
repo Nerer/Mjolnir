@@ -23,31 +23,31 @@ void input()
 	s1 = s2 = 0;
 	cin >> n;
 	for(int i = 1; i <= n; i++)
-		{
-			scanf("%d", &a[i]);
-			if(a[i] < 0) a[i] = -a[i];
-			s1 += 1LL * a[i];
-			s2 += 1LL * a[i] * a[i];
-		}
-	}
-	void solve()
 	{
-		LL x, y;
-		x = - s1 * s1 + 1LL * n * s2;
-		y = n;
-		LL d = __gcd(x, y);
-		x /= d;
-		y /= d;
-		cout << x << '/' << y << endl;
+		scanf("%d", &a[i]);
+		if(a[i] < 0) a[i] = -a[i];
+		s1 += 1LL * a[i];
+		s2 += 1LL * a[i] * a[i];
 	}
-	int main()
+}
+void solve()
+{
+	LL x, y;
+	x = - s1 * s1 + 1LL * n * s2;
+	y = n;
+	LL d = __gcd(x, y);
+	x /= d;
+	y /= d;
+	cout << x << '/' << y << endl;
+}
+int main()
+{
+	int t;
+	cin >> t;
+	while(t--)
 	{
-		int t;
-		cin >> t;
-		while(t--)
-		{
-			input();
-			solve();
-		}
-		return 0;
+		input();
+		solve();
 	}
+	return 0;
+}
