@@ -1,28 +1,28 @@
-	#include <iostream>
-	#include <cstdio>
-	#include <cstdlib>
-	#include <cstring>
-	#include <algorithm>
-	#include <cmath>
-	using namespace std;
-	typedef long long LL;
-	const int N = 1100010;
-	int n;
-	int a[N];
-	LL s1, s2;
-	long long mgcd(long long x, long long y) {
-		if (y == 0) {
-			return x;
-		} else {
-			return mgcd(y, x % y);
-		}
+#include <iostream>
+#include <cstdio>
+#include <cstdlib>
+#include <cstring>
+#include <algorithm>
+#include <cmath>
+using namespace std;
+typedef long long LL;
+const int N = 1100010;
+int n;
+int a[N];
+LL s1, s2;
+long long mgcd(long long x, long long y) {
+	if (y == 0) {
+		return x;
+	} else {
+		return mgcd(y, x % y);
 	}
+}
 
-	void input()
-	{
-		s1 = s2 = 0;
-		cin >> n;
-		for(int i = 1; i <= n; i++)
+void input()
+{
+	s1 = s2 = 0;
+	cin >> n;
+	for(int i = 1; i <= n; i++)
 		{
 			scanf("%d", &a[i]);
 			if(a[i] < 0) a[i] = -a[i];
