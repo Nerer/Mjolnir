@@ -1,16 +1,22 @@
-A. Divisibility
+---
+date: 2016-08-05 19:57
+status: public
+title: '【Dhaka2012】A. Divisibility'
+---
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
 
 ## 题目大意
-在$n(n \le 8)$维坐标上，每个整数坐标上有个值，对于$(x_1, x_2, \ldots, x_n)$，任意一维坐标为负该值都是$0$，$(0, 0, \ldots, 0)$的值为$1$，
-其他$(x_1, x_2, \ldots, x_n)$的值是$(x_1 - 1, x_2, \ldots, x_n), (x_1, x_2 - 1, \ldots, x_n), \ldots, (x_1, x_2, \ldots, x_n - 1)$这些值的和。
-问在该空间中的某个范围内（对于每一维坐标给出一个范围），有多少个整点上的值能整除质数$p(p \le 20)$。
+在\\(n(n \le 8)\\)维坐标上，每个整数坐标上有个值，对于\\((x_1, x_2, \ldots, x_n)\\)，任意一维坐标为负该值都是\\(0\\)，\\((0, 0, \ldots, 0)\\)的值为\\(1\\)，
+其他\\((x_1, x_2, \ldots, x_n)\\)的值是\\((x_1 - 1, x_2, \ldots, x_n), (x_1, x_2 - 1, \ldots, x_n), \ldots, (x_1, x_2, \ldots, x_n - 1)\\)这些值的和。
+问在该空间中的某个范围内（对于每一维坐标给出一个范围），有多少个整点上的值能整除质数\\(p(p \le 20)\\)。
 
 ## 做法
-首先需要看出的是，$(x_1, x_2, \ldots, x_n)$的值就是$\frac{(\Sigma{x_i})!}{\Pi{(x_i!)}}$。
-令$f(n) = [n / p] + [n / p^2] + \ldots$，即$n!$中$p$的次数。
-那么模$p$为$0$等价于$f(\sum{x_i}) = \sum{f(x_i)}$
-展开式子可以发现这就等价于$\sum{(x_k~mod~p^r)} < p^r$
-由归纳法，这等价于$x_k$在$p$进制下的每一位都不发生进位。
+首先需要看出的是，\\((x_1, x_2, \ldots, x_n)\\)的值就是\\(\frac{(\Sigma{x_i})!}{\Pi{(x_i!)}}\\)。
+令\\(f(n) = [n / p] + [n / p^2] + \ldots\\)，即\\(n!\\)中\\(p\\)的次数。
+那么模\\(p\\)为\\(0\\)等价于\\(f(\sum{x_i}) = \sum{f(x_i)}\\)
+展开式子可以发现这就等价于\\(\sum{(x_k~mod~p^r)} < p^r\\)
+由归纳法，这等价于\\(x_k\\)在\\(p\\)进制下的每一位都不发生进位。
 于是可以数位dp求方案数。
 
 ## 代码
